@@ -99,7 +99,7 @@ footer {
 .colorspray{
     animation-delay: 100ms;
     animation: color 700ms;
-    animation-iteration-count: 3;
+    animation-iteration-count: 8;
 }
 @keyframes jump{
     0%   {left: 0px;}
