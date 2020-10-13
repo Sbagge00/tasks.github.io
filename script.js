@@ -2,6 +2,7 @@ const form = document.getElementById('form');
 const input = document.getElementById('input');
 const tasks = document.getElementById('tasks');
 const history = JSON.parse(localStorage.getItem("tasks"));
+var btn = document.getElementById("completed");
 var chck = new Audio("noise.wav");
 var rmve = new Audio("sweep.wav");
 var fnfr = new Audio("fanfare.wav");
@@ -42,6 +43,8 @@ function addTodo() {
             e.preventDefault();
         
             taskEl.remove();
+
+            btn.classList.toggle('animate');
 
             fnfr.play();
         
