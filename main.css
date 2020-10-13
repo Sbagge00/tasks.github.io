@@ -69,7 +69,8 @@ li {
 }
 p {
     padding-bottom: 40px;
-	width: 70%;
+    text-align: center;
+    width: 80%;
 }
 footer {
 	position: fixed;
