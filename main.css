@@ -21,6 +21,7 @@ h1 {
     width: 80%;
     background-color: rgb(140, 245, 145);
     color: white;
+    position: relative;
 }
 #completed.hover {
     background-color: rgb(140, 245, 145);
@@ -90,4 +91,13 @@ footer {
     color: whitesmoke;
     padding-bottom: 5px;
     text-align: center;
+}
+.animate{
+    animation: jump 400ms;
+}
+@keyframes jump{
+    0%   {left: 0px;}
+    25%   {left: 20px;}
+    75%   {left: -20px;}
+    100%   {left: 0px;}
 }
