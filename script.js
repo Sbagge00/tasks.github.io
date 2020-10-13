@@ -3,6 +3,7 @@ const input = document.getElementById('input');
 const tasks = document.getElementById('tasks');
 const history = JSON.parse(localStorage.getItem("tasks"));
 var btn = document.getElementById("completed");
+var ttl = document.getElementById("title");
 var chck = new Audio("noise.wav");
 var rmve = new Audio("sweep.wav");
 var fnfr = new Audio("fanfare.wav");
@@ -44,7 +45,9 @@ function addTodo() {
         
             taskEl.remove();
 
-            btn.classList.toggle('animate');
+           /* btn.classList.toggle('animate'); */
+
+            ttl.classList.toggle('colorspray');
 
             fnfr.play();
         
