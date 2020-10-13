@@ -32,14 +32,6 @@ function addTodo() {
             updateLS();
         });
 
-        taskEl.addEventListener("dblclick", (e) => {
-            e.preventDefault();
-
-            taskEl.remove();
-
-            updateLS();
-        });
-
         tasks.appendChild(taskEl);
 
         input.value = "";
