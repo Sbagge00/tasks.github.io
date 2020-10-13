@@ -2,6 +2,9 @@ const form = document.getElementById('form');
 const input = document.getElementById('input');
 const tasks = document.getElementById('tasks');
 const history = JSON.parse(localStorage.getItem("tasks"));
+var chck = new Audio("noise.wav");
+var rmve = new Audio("sweep.wav");
+var fnfr = new Audio("fanfare.wav");
 
 /* For using the enter key */
 form.addEventListener("submit", (e) => {
@@ -21,11 +24,15 @@ function addTodo() {
         taskEl.addEventListener("click", () => {
             taskEl.classList.toggle('completed');
 
+            chck.play();
+
             updateLS();
         });
 
         taskEl.addEventListener("contextmenu", (e) => {
             e.preventDefault();
+
+            rmve.play();
 
             taskEl.remove();
 
@@ -58,6 +65,11 @@ function updateLS() {
             ('completed')
         })
     })
+
+    if(tasks.push.includes('false')) {
+    } else {
+        fnfr.play();
+    }
 
     localStorage.setItem("tasks", JSON.stringify
     (tasks));
