@@ -11,10 +11,21 @@ h1 {
     text-align: center;
     margin: 30px;
     color: rgb(102, 125, 230);
-    font-size: 60px;
+    font-size: 70px;
 }
 #items {
     text-align: center;
+}
+#completed {
+    margin-bottom: 10px;
+    width: 80%;
+    background-color: rgb(140, 245, 145);
+    color: white;
+}
+#completed.hover {
+    background-color: rgb(140, 245, 145);
+    transition-duration: 0.4s;
+    color: whitesmoke;
 }
 .button {
     border: 0px solid silver;
@@ -77,4 +88,6 @@ footer {
     background-color: rgb(102, 121, 230);
     width: 100%;
     color: whitesmoke;
+    padding-bottom: 5px;
+    text-align: center;
 }
