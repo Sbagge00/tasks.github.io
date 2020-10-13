@@ -19,13 +19,14 @@ h1 {
 .button {
     border: 0px solid silver;
     background-color: white;
-    width: 18%;
+    width: 19%;
     height: 50px;
     border-radius: 7px;
 }
 .button:hover {
     background-color: rgb(102, 121, 230);
     transition-duration: 0.4s;
+    color: whitesmoke;
 }
 #input {
     color: grey;
@@ -38,10 +39,14 @@ h1 {
 form {
     margin: auto;
     max-width: 100%;
-    width: 40%;
+    width: 80%;
 }
 .input {
     display: block;
+}
+.tasklist {
+    overflow: scroll;
+    height: 100px;
 }
 li {
     background-color: white;
@@ -62,8 +67,14 @@ li {
     background-color: rgb(140, 245, 145);
     color: whitesmoke;
 }
+p {
+    padding-bottom: 40px;
+}
 footer {
+	position: fixed;
+	bottom: 0;
+    font-size: smaller;
+    background-color: rgb(102, 121, 230);
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    color: whitesmoke;
 }
