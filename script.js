@@ -17,8 +17,7 @@ function addTodo() {
     const taskText = input.value;
 
     if(taskText) {
-        const taskEl = document.createElement
-        ("li");
+        const taskEl = document.createElement('li');
         taskEl.innerText = taskText;
 
         taskEl.addEventListener("click", () => {
@@ -39,6 +38,15 @@ function addTodo() {
             updateLS();
         });
 
+        completed.addEventListener("click", (e) => { 
+            e.preventDefault();
+        
+            taskEl.remove();
+
+            fnfr.play();
+        
+            updateLS(); 
+        });
         tasks.appendChild(taskEl);
 
         input.value = "";
@@ -51,6 +59,8 @@ button.addEventListener("click", (e) => {
     e.preventDefault();
 
     addTodo();
+
+    input.focus();
 });
 
 function updateLS() {
@@ -65,11 +75,12 @@ function updateLS() {
             ('completed')
         })
     })
-
-    if(tasks.push.includes('false')) {
-    } else {
+/*
+    if(history.includes("true")) {
         fnfr.play();
+    } else {
     }
+*/
 
     localStorage.setItem("tasks", JSON.stringify
     (tasks));
