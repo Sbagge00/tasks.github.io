@@ -33,7 +33,7 @@ h1 {
     text-align: center;
     border: 0px solid silver;
     height: 50px;
-    width: 80%;
+    width: 75%;
     border-radius: 7px;
 }
 form {
@@ -69,6 +69,7 @@ li {
 }
 p {
     padding-bottom: 40px;
+	width: 70%;
 }
 footer {
 	position: fixed;
