@@ -1,20 +1,22 @@
 const form = document.getElementById('form');
 const input = document.getElementById('input');
 const tasks = document.getElementById('tasks');
-const history = JSON.parse(localStorage.getItem("tasks"));
 var btn = document.getElementById("completed");
 var ttl = document.getElementById("title");
 var chck = new Audio("noise.wav");
 var rmve = new Audio("sweep.wav");
 var fnfr = new Audio("fanfare.wav");
+var todos = [];
+const taskEl = document.createElement('li');
 
-/* For using the enter key */
+/* when user presses enter key, call todo function */
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     addTodo();
 });
 
+/* add task and listen for ui interactions */
 function addTodo() {
     const taskText = input.value;
 
@@ -27,7 +29,7 @@ function addTodo() {
 
             chck.play();
 
-            updateLS();
+            saveTodos();
         });
 
         taskEl.addEventListener("contextmenu", (e) => {
@@ -36,31 +38,28 @@ function addTodo() {
             rmve.play();
 
             taskEl.remove();
-
-            updateLS();
+            saveTodos();
         });
 
         completed.addEventListener("click", (e) => { 
             e.preventDefault();
         
             taskEl.remove();
-
-           /* btn.classList.toggle('animate'); */
+            tasks.remove();
 
             ttl.classList.toggle('colorspray');
 
             fnfr.play();
-        
-            updateLS(); 
+            saveTodos();
         });
         tasks.appendChild(taskEl);
 
         input.value = "";
+        saveTodos();
     }
 }
 
-
-/* For using the add button */
+/* when user presses button, call todo function */
 button.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -69,25 +68,54 @@ button.addEventListener("click", (e) => {
     input.focus();
 });
 
-function updateLS() {
+function saveTasks() {
     const tasksEl = document.querySelectorAll('li');
 
     const tasks = [];
 
     tasksEl.forEach(taskEl => {
-        tasks.push({
-            text: taskEl.innerText,
-            completed: taskEl.classList.contains
-            ('completed')
-        })
+        tasks.push(taskEl.innerText)
     })
-/*
-    if(history.includes("true")) {
-        fnfr.play();
-    } else {
-    }
-*/
 
-    localStorage.setItem("tasks", JSON.stringify
-    (tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
+function saveTodos() {
+    const tasksEl = document.querySelectorAll('li');
+
+    const todos = [];
+
+    tasksEl.forEach(taskEl => {
+        todos.push(taskEl.innerText)
+    })
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function getTodos() {
+    var str = localStorage.getItem("todos");
+    todos = JSON.parse(str);
+    if (!todos) {
+        todos = [];
+    }
+}
+
+function getTasks() {
+    var str = localStorage.getItem("tasks");
+    mtasks = JSON.parse(str);
+    if (!mtasks) {
+        mtasks = [];
+    }
+}
+
+function listTodos() {
+    var html = "";
+    for (var i in todos) {
+        var x = todos[i].toString();
+        console.log(x);
+        tasks.innerHTML += "<li>"+`${x}`+"</li>";
+    }
+}
+
+getTodos();
+listTodos();
